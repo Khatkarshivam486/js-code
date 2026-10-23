@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style = "background-color: #414141; color: #fff">
+    <h2>Amazing image</h2>   
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="car" src="https://www.bing.com/th/id/OIP.B89JFviebUWHqx55l28wEQHaE7?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=ImgAns&rm=2"alt="car image"></li> //onclick="alert('car')"
+            <li><a style = "color: aliceblue" href = "http://google.com" id="google">Google</a></li>
+        </ul>
+    </div>   
+</body>
+<script>
+    // document.getElementById('car').onclick = function(){
+    //     alert('car clicked');
+    // }
+
+    // attachEvent() - Internal Explorer
+    // jQuery - .on() like eventListner()
+
+    // type, timestamp, defaultPrevent(), 
+    // target, toElement, srcElement, currentTarget
+    // Interview - clientX, clientY, offset screenX, screenY, 
+    // altkey, ctrlkey, shiftkey, **keycode**
+    
+// Event Propogation Bubbling element to outer shell, Capturing top shell to element
+
+    document.getElementById('images').addEventListener('click', (e) => {
+        console.log('clicked inside the ul');
+    }, false)
+    document.getElementById('car').addEventListener('click', (e) => {
+        console.log('car clicked');
+        e.stopPropagation() // stops and separates inner element from outerelement
+    }, false)
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.defaultPrevented()
+    }, false)
+
+    
+</script>
+</html>

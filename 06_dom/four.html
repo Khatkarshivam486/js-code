@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khatkar | DOM</title>
+</head>
+<body style="background-color: #212121; color:#ffff">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // function addLanguage(langName){
+    //     const li = document.createElement('li')
+    //     const addText = document.createTextNode(`${langName}`)
+    //     // li.innerHTML = `${langName}`
+    //     li.appendChild(addText)
+    //     document.querySelector('.language').appendChild(li)
+    // }
+    // addLanguage("python")
+    function addOptiLang(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang('python')
+    addOptiLang('php')
+
+    //Editing a Element in DOM
+    const secondLang = document.querySelector('li:nth-child(2)')
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo" // textContent; innerHTML; createTextNode 
+    secondLang.replaceWith(newli)
+
+    //Editing 
+    const firstLang = document.querySelector('li:first-child')
+    firstLang.outterHTML = "<li>Typescript</li>"
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
